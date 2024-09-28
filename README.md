@@ -1,2 +1,5 @@
-# wks-felipe-projectstudeo
-Desenvolvido por Felipe dos Santos - 24224651-2
+# Projeto para Atividade do Primeiro Bimestre
+
+## Desevolvido Por:
+Nome: Felipe dos Santos M. de Freitas
+RA:   24224651-2
