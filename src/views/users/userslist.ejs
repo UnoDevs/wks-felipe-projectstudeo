@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Studeo</title>
+    <!--CSS BOOTSTRAP-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!--LOCAL CSS-->
+</head>
+<body>
+    <div class="container-fluid shadow  mb-3">
+        <nav class="row navbar" style="background-color: rgb(82, 82, 255);">
+            <div class="col-2">
+                <a href="/" style="text-decoration: none;" class="text-light h3">Project Studeo</a>
+            </div>
+        </nav>
+        <div class="container">
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+        <h1 class="col text-center" style="margin-bottom: 50px;">Lista de Usuários!</h1>
+        </div>
+    </div>
+    
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Email</th>
+                <th scope="col">Papel</th>
+                <th scope="col">Status</th>
+                <th scope="col">Data de Cadastro</th>
+                <th scope="col">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%if(users.length > 0) {%>
+                <%users.forEach(user => {%>
+                    <tr>
+                        <th scope="row"><%=user.id%></th>
+                        <td><%=user.nome%></td>
+                        <td><%=user.email%></td>
+                        <td><%=user.papel%></td>
+                        <td><%=user.status%></td>
+                        <td><%=user.create_date%></td>
+                        <td>
+                            <form action="/users/<%=user.id%>/delete" method="post">
+                                <button type="submit" class="btn btn-danger">Excluir</button>
+                            </form>
+                        </td>
+                    </tr>
+                <%});%>    
+            <%} else {%>
+                <tr>
+                    <td colspan="7" class="text-center"><em>Nenhum usuário cadastrado!</em></td>
+                </tr>
+            <%}%>    
+        </tbody>
+    </table>
+
+    <div style="margin-left: 10px;">
+        <a href="/users/add" class="btn btn-primary">Adicionar</a>
+    </div>
+    <!--JS BOOTSTRAP-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
